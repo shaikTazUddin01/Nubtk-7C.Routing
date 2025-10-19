@@ -1,0 +1,166 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Base Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Clean, professional, yet modern */
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%); /* Soothing blue gradient background */
+    color: #1a237e; /* Deep blue text color */
+    min-height: 100vh;
+}
+
+/* Container - Glass Effect */
+.schedule-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* The "Glass" effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Title - Professional & Playful */
+.main-title {
+    color: #007bff;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 35px;
+    font-size: 2.2em;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Day Heading - Clear and Fun */
+.day-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #004d40; /* Dark Teal */
+    background: #e0f2f1; /* Light Teal background */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.day-heading .icon {
+    margin-right: 10px;
+    font-size: 1.3em;
+    color: #00796b;
+}
+
+.day-caption {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #00796b;
+}
+
+/* --- Table Styling --- */
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 40px;
+    font-size: 0.95em;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Table Header Row */
+.schedule-table thead th {
+    text-align: left;
+    padding: 18px 25px;
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #007bff; /* Primary Blue Header */
+    border: none;
+}
+
+/* Center last column header */
+.schedule-table thead th:last-child {
+     text-align: center;
+     width: 160px; 
+}
+
+/* Table Data Rows */
+.schedule-table tbody td {
+    padding: 15px 25px;
+    border-bottom: 1px solid #f0f0f0; 
+    color: #455a64;
+    background-color: #ffffff;
+}
+
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Time, Title, and Teacher Bolding */
+.schedule-table tbody tr td:nth-child(1) { /* Time column */
+    font-weight: 700;
+    color: #d84315; /* Energetic Orange/Red for Time */
+    white-space: nowrap;
+}
+.schedule-table tbody tr td:nth-child(4) { /* Course Title column */
+    font-weight: 500;
+    color: #1a237e;
+}
+.schedule-table tbody tr td:nth-child(5) { /* Teacher column */
+    text-align: center;
+    font-size: 0.9em;
+    color: #007bff;
+    font-weight: 400;
+}
+
+/* Hover effect - Subtle glow */
+.schedule-table tbody tr:hover {
+    background-color: #f3f3f3; /* Light grey hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer; /* Different cursor for fun */
+}
+
+/* --- Responsive Design --- */
+.table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .schedule-container {
+        padding: 20px 10px;
+        border-radius: 0;
+        box-shadow: none;
+        background: #ffffff; /* Remove glass on small screens for performance/simplicity */
+        border: none;
+    }
+    .main-title {
+        font-size: 1.8em;
+    }
+    .day-heading {
+        font-size: 1.3em;
+        padding: 10px 15px;
+    }
+    
+    /* Ensure table has minimum width for horizontal scroll */
+    .schedule-table {
+        min-width: 780px; 
+    }
+    
+    .schedule-table thead th,
+    .schedule-table tbody td {
+        padding: 12px 15px;
+        font-size: 0.85em;
+    }
+}

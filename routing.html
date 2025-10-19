@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 7C Routine</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="schedule-container">
+      <h2 class="main-title">Section 7C: Class Routine 🚀</h2>
+
+      <div class="table-wrapper" id="schedule-output">
+        <p>Loading the complete schedule...</p>
+      </div>
+    </div>
+
+    <script>
+      // 🚀 CENTRAL COURSE MAPPING (Subject Code and Title Constant)
+      const COURSE_MAP = {
+        "CSE 4101": "Compiler Design",
+        "CSE 4102": "Compiler Design Lab",
+        "CSE 4104": "Software Development III",
+        "CSE 4105": "Computer Network",
+        "CSE 4106": "Computer Network Lab",
+        "CSE 4107": "Computer Graphics and Multimedia System",
+        "CSE 4108": "Computer Graphics and Multimedia System Lab",
+        "CSE 4111": "Artificial Intelligence and Expert System",
+        "CSE 4112": "Artificial Intelligence and Expert System Lab",
+      };
+
+      // 👨‍🏫 CENTRAL TEACHER MAPPING (Teacher Full Name and Abbreviation Constant)
+      // Note: The key should be the abbreviation used in the routine.
+      const TEACHER_MAP = {
+        RM: "Md. Riaz Mahmud (RM)",
+        MT: "Md. Mossadek Touhid (MT)",
+        SSS: "Susmita Sejuti Saha (SSS)",
+        UH: "Umme Habiba (UH)",
+        VK: "Vashkar Kar (VK)",
+      };
+
+      // SECTION 7C Final Routine (Saturday, Tuesday, Wednesday, Thursday)
+      const scheduleData = {
+        schedule: [
+          {
+            day: "Saturday",
+            caption: "The Official Week Is Start ☕",
+            classes: [
+              {
+                time: "08:50 AM - 09:40 AM",
+                room_lab: "LAB 2",
+                course_code: "CSE 4104",
+                course_title: COURSE_MAP["CSE 4104"],
+                teacher: TEACHER_MAP["RM"],
+              },
+              {
+                time: "09:40 AM - 10:30 AM",
+                room_lab: "111",
+                course_code: "CSE 4105",
+                course_title: COURSE_MAP["CSE 4105"],
+                teacher: TEACHER_MAP["MT"],
+              },
+              {
+                time: "10:30 AM - 11:20 AM",
+                room_lab: "LAB 2",
+                course_code: "CSE 4108",
+                course_title: COURSE_MAP["CSE 4108"],
+                teacher: TEACHER_MAP["SSS"],
+              },
+            ],
+          },
+          {
+            day: "Tuesday",
+            caption: "Starting the Week with a Logic Puzzle",
+            classes: [
+              {
+                time: "10:30 AM - 11:20 AM",
+                room_lab: "LAB 2",
+                course_code: "CSE 4102",
+                course_title: COURSE_MAP["CSE 4102"],
+                teacher: TEACHER_MAP["UH"],
+              },
+              {
+                time: "11:20 AM - 12:10 PM",
+                room_lab: "303",
+                course_code: "CSE 4107",
+                course_title: COURSE_MAP["CSE 4107"],
+                teacher: TEACHER_MAP["SSS"],
+              },
+              {
+                time: "12:10 PM - 01:00 PM",
+                room_lab: "216",
+                course_code: "CSE 4101",
+                course_title: COURSE_MAP["CSE 4101"],
+                teacher: TEACHER_MAP["UH"],
+              },
+            ],
+          },
+          {
+            day: "Wednesday",
+            caption: "The Mid-Week Power Up! ⚡",
+            classes: [
+              {
+                time: "01:50 PM - 02:40 PM",
+                room_lab: "Room 111",
+                course_code: "CSE 4101",
+                course_title: COURSE_MAP["CSE 4101"],
+                teacher: TEACHER_MAP["UH"],
+              },
+              {
+                time: "02:40 PM - 03:30 PM",
+                room_lab: "Room 111",
+                course_code: "CSE 4111",
+                course_title: COURSE_MAP["CSE 4111"],
+                teacher: TEACHER_MAP["VK"],
+              },
+              {
+                time: "03:30 PM - 04:20 PM",
+                room_lab: "Room 111",
+                course_code: "CSE 4105",
+                course_title: COURSE_MAP["CSE 4105"],
+                teacher: TEACHER_MAP["MT"],
+              },
+            ],
+          },
+          {
+            day: "Thursday",
+            caption: "Almost There... Hang in Tight! 💪",
+            classes: [
+              {
+                time: "09:40 AM - 10:30 AM",
+                room_lab: "LAB 2",
+                course_code: "CSE 4106",
+                course_title: COURSE_MAP["CSE 4106"],
+                teacher: TEACHER_MAP["MT"],
+              },
+              {
+                time: "10:30 AM - 11:20 AM",
+                room_lab: "Room 304",
+                course_code: "CSE 4107",
+                course_title: COURSE_MAP["CSE 4107"],
+                teacher: TEACHER_MAP["UH"],
+              },
+              {
+                time: "11:20 AM - 12:10 PM",
+                room_lab: "LAB 2",
+                course_code: "CSE 4112",
+                course_title: COURSE_MAP["CSE 4112"],
+                teacher: TEACHER_MAP["UH"],
+              },
+            ],
+          },
+        ],
+      };
+
+      // JavaScript Function to Render the Schedule
+      function renderSchedule(data) {
+        const outputElement = document.getElementById("schedule-output");
+        let htmlContent = "";
+
+        data.schedule.forEach((daySchedule) => {
+          htmlContent += `
+                    <div class="day-heading">
+                        <div>
+                            <span class="icon">&#x1F4C5;</span>
+                            ${daySchedule.day}
+                        </div>
+                        <span class="day-caption">${daySchedule.caption}</span>
+                    </div>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Room</th>
+                                <th>Code </th>
+                                <th>Title</th>
+                                <th>Instructor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+          daySchedule.classes.forEach((classItem) => {
+            // Normalize the course code by trimming whitespace before lookup
+            const normalizedCode = classItem.course_code.trim();
+
+            // Use COURSE_MAP for the title, falling back if needed
+            const courseTitle =
+              COURSE_MAP[normalizedCode] || classItem.course_title;
+
+            // Use TEACHER_MAP for the name, using the value directly if a map key isn't found
+            const teacherName = classItem.teacher.match(/\(([^)]+)\)/); // Extract abbreviation from old format like 'Name (ABBR)'
+            let finalTeacherName = classItem.teacher;
+
+            if (teacherName && TEACHER_MAP[teacherName[1]]) {
+              // If an abbreviation is found in the teacher field and it exists in the map, use the map value
+              finalTeacherName = TEACHER_MAP[teacherName[1]];
+            } else if (TEACHER_MAP[classItem.teacher]) {
+              // If the teacher field itself is the abbreviation (e.g., 'RM'), use the map value
+              finalTeacherName = TEACHER_MAP[classItem.teacher];
+            }
+
+            htmlContent += `
+                        <tr>
+                            <td>${classItem.time}</td>
+                            <td>${classItem.room_lab}</td>
+                            <td>${classItem.course_code}</td>
+                            <td>${courseTitle}</td>
+                            <td>${finalTeacherName}</td>
+                        </tr>
+                    `;
+          });
+
+          htmlContent += `
+                        </tbody>
+                    </table>
+                `;
+        });
+
+        outputElement.innerHTML = htmlContent;
+      }
+
+      // Function call
+      document.addEventListener("DOMContentLoaded", () => {
+        renderSchedule(scheduleData);
+      });
+    </script>
+  </body>
+</html>
