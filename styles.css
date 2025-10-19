@@ -1,166 +1,157 @@
-/* Google Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-/* Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Roboto', sans-serif; /* Clean, professional, yet modern */
-    margin: 0;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%); /* Soothing blue gradient background */
-    color: #1a237e; /* Deep blue text color */
-    min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #0d47a1;
+  min-height: 100vh;
+  padding: 40px 15px;
 }
 
-/* Container - Glass Effect */
 .schedule-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* The "Glass" effect */
-    -webkit-backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 20px; 
-    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 30px 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Title - Professional & Playful */
 .main-title {
-    color: #007bff;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 35px;
-    font-size: 2.2em;
-    letter-spacing: 1px;
-    border-bottom: 3px solid #007bff;
-    padding-bottom: 10px;
+  text-align: center;
+  font-size: 2.2rem;
+  color: #1565c0;
+  font-weight: 700;
+  border-bottom: 3px solid #42a5f5;
+  padding-bottom: 12px;
+  margin-bottom: 40px;
 }
 
-/* Day Heading - Clear and Fun */
-.day-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-    margin-top: 35px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #004d40; /* Dark Teal */
-    background: #e0f2f1; /* Light Teal background */
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* Day Card */
+.day-card {
+  background: #ffffff;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-.day-heading .icon {
-    margin-right: 10px;
-    font-size: 1.3em;
-    color: #00796b;
+.day-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-.day-caption {
-    font-size: 0.8em;
-    font-weight: 500;
-    color: #00796b;
+/* Header */
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e3f2fd;
+  padding: 14px 20px;
+  border-radius: 14px 14px 0 0;
+  border-bottom: 2px solid #bbdefb;
 }
 
-/* --- Table Styling --- */
+.day-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0d47a1;
+  display: flex;
+  align-items: center;
+}
+
+.day-title .icon {
+  margin-right: 10px;
+  font-size: 1.3rem;
+}
+
+.caption {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1565c0;
+  opacity: 0.8;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+}
+
 .schedule-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    margin-bottom: 40px;
-    font-size: 0.95em;
-    overflow: hidden;
-    border-radius: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 750px;
 }
 
-/* Table Header Row */
-.schedule-table thead th {
-    text-align: left;
-    padding: 18px 25px;
-    color: #ffffff;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background-color: #007bff; /* Primary Blue Header */
-    border: none;
+.schedule-table th,
+.schedule-table td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
 }
 
-/* Center last column header */
-.schedule-table thead th:last-child {
-     text-align: center;
-     width: 160px; 
+.schedule-table th {
+  background: #1565c0;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
-/* Table Data Rows */
-.schedule-table tbody td {
-    padding: 15px 25px;
-    border-bottom: 1px solid #f0f0f0; 
-    color: #455a64;
-    background-color: #ffffff;
-}
-
-.schedule-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Time, Title, and Teacher Bolding */
-.schedule-table tbody tr td:nth-child(1) { /* Time column */
-    font-weight: 700;
-    color: #d84315; /* Energetic Orange/Red for Time */
-    white-space: nowrap;
-}
-.schedule-table tbody tr td:nth-child(4) { /* Course Title column */
-    font-weight: 500;
-    color: #1a237e;
-}
-.schedule-table tbody tr td:nth-child(5) { /* Teacher column */
-    text-align: center;
-    font-size: 0.9em;
-    color: #007bff;
-    font-weight: 400;
-}
-
-/* Hover effect - Subtle glow */
 .schedule-table tbody tr:hover {
-    background-color: #f3f3f3; /* Light grey hover */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease-in-out;
-    cursor: pointer; /* Different cursor for fun */
+  background: #f1f8ff;
+  transition: 0.2s;
 }
 
-/* --- Responsive Design --- */
-.table-wrapper {
-    overflow-x: auto;
-    width: 100%;
+.schedule-table td:nth-child(1) {
+  color: #d84315;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
+.schedule-table td:nth-child(5) {
+  text-align: center;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .schedule-container {
-        padding: 20px 10px;
-        border-radius: 0;
-        box-shadow: none;
-        background: #ffffff; /* Remove glass on small screens for performance/simplicity */
-        border: none;
-    }
-    .main-title {
-        font-size: 1.8em;
-    }
-    .day-heading {
-        font-size: 1.3em;
-        padding: 10px 15px;
-    }
-    
-    /* Ensure table has minimum width for horizontal scroll */
-    .schedule-table {
-        min-width: 780px; 
-    }
-    
-    .schedule-table thead th,
-    .schedule-table tbody td {
-        padding: 12px 15px;
-        font-size: 0.85em;
-    }
+  body {
+    padding: 20px 10px;
+  }
+
+  .schedule-container {
+    padding: 20px 15px;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .day-title {
+    font-size: 1.2rem;
+  }
+
+  .caption {
+    display: none;
+  }
+
+  .schedule-table {
+    min-width: 600px;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
 }
